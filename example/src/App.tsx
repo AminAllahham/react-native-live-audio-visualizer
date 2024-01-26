@@ -38,15 +38,7 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.waveContainer}>
         {result.map((wave, index) => (
-          <View
-            key={index}
-            style={[
-              styles.waveItem,
-              {
-                height: wave * 100,
-              },
-            ]}
-          />
+          <View key={index} style={[styles.waveItem, { height: wave * 100 }]} />
         ))}
       </View>
     </View>
