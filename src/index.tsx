@@ -1,22 +1,20 @@
-import { NativeModules, Platform } from 'react-native';
+import { NativeModules } from 'react-native';
 
-const LINKING_ERROR =
-  `The package 'react-native-live-audio-visualizer' doesn't seem to be linked. Make sure: \n\n` +
-  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
-  '- You rebuilt the app after installing the package\n' +
-  '- You are not using Expo Go\n';
+const LiveAudioVisualizer = NativeModules.LiveAudioVisualizer;
 
-const LiveAudioVisualizer = NativeModules.LiveAudioVisualizer
-  ? NativeModules.LiveAudioVisualizer
-  : new Proxy(
-      {},
-      {
-        get() {
-          throw new Error(LINKING_ERROR);
-        },
-      }
-    );
+export function startAudioListening(): Promise<void> {
+  return LiveAudioVisualizer.startAudioListening();
+}
 
-export function multiply(a: number, b: number): Promise<number> {
-  return LiveAudioVisualizer.multiply(a, b);
+export function stopAudioListening(): Promise<void> {
+  return LiveAudioVisualizer.stopAudioListening();
+}
+
+export function setSensitivity(sensitivity: number): Promise<void> {
+  return LiveAudioVisualizer.setSensitivity(sensitivity);
+}
+
+export function addEventListener(callback: (data: any) => void): void {
+  LiveAudioVisualizer.addListener('audioStarted', callback);
+  LiveAudioVisualizer.addListener('VisualizationChanged', callback);
 }
