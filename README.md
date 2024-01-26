@@ -11,7 +11,7 @@ npm install react-native-live-audio-visualizer
 
 ## Usage
 
-```
+```ts
 import * as React from 'react';
 import { DeviceEventEmitter, StyleSheet, View } from 'react-native';
 import {
