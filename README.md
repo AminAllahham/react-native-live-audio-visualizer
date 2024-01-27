@@ -8,6 +8,9 @@ A powerful and customizable real-time audio visualizer component for React Nativ
 npm install react-native-live-audio-visualizer
 ```
 
+## Demo
+[![Demo Video](./demo.mp4)](./demo.mp4)
+
 
 ## Usage
 
