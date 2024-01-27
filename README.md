@@ -9,7 +9,8 @@ npm install react-native-live-audio-visualizer
 ```
 
 ## Demo
-![Demo Video](demo.mp4)
+
+[![Demo Video](./demo.mp4)](./demo.mp4)
 
 
 ## Usage
